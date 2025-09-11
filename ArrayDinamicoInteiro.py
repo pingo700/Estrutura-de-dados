@@ -190,8 +190,8 @@ class DynamicIntArray:
             - Elementos a partir de index são deslocados uma posição à direita.
             Dica, pode usar o for i in range para andar de trás pra frente (-1).
         """
-        # SEU CÓDIGO AQUI.
-        self.check_index(index)
+        if index < 0 or index > self.size:
+            raise IndexError("Índice fora dos limites.")
         if self.is_full():
             self._resize(self.capacity * 2) # Dobro a capacidade se estiver cheio
         for i in range(self.size, index, -1): # Desloca elementos para a direita
