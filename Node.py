@@ -36,7 +36,14 @@ class SingleLinkedList:
             lista.append(30)   # head=10, tail=30
             print(lista)       # "10 -> 20 -> 30"
         """
-        # SEU CÓDIGO AQUI.
+        novo_no = Node(data) 
+        if(self.head is None):
+           self.tail = novo_no
+           self.head = novo_no 
+        else:
+           self.tail.next = novo_no
+           self.tail = novo_no
+        self.size = self.size + 1
 
     def insert(self, index, data):
         """
@@ -57,7 +64,15 @@ class SingleLinkedList:
             lista.insert(1, 11)   # Insere o 11 na posição 1
             print(lista)          # "5 -> 11 -> 23 -> 7"
         """
-       # SEU CÓDIGO AQUI.
+        trav = self.head  
+        aux = 0
+        novo_no = Node(data) 
+        while trav:
+            if (aux == index):
+                trav.data = data
+            aux = aux + 1
+            trav = trav.next
+
 
     def __str__(self):
         """
@@ -68,6 +83,7 @@ class SingleLinkedList:
         while trav:
             elements.append(str(trav.data))
             trav = trav.next
+            print(elements)
         return " -> ".join(elements)
 
 
